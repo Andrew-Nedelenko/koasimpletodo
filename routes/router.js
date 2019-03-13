@@ -7,6 +7,7 @@ const router = new Router();
 router.get('/', root);
 router.get('/list', list.getAllList);
 router.get('/add', list.getToAdd);
+router.post('/list', list.postTask);
 
 module.exports = {
   router,

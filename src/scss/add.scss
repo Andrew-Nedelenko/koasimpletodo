@@ -1,0 +1,25 @@
+.addContainer{
+    display: block;
+    margin: 20px auto 0 auto;
+    max-width: 200px;
+    form{
+        display: flex;
+        flex-direction: column;
+        font-family: $ubuntu;
+        input{
+            border: none;
+            border-bottom: 1px solid grey;
+            margin: 10px 0;
+            padding: 3px 0;
+        }
+        textarea{
+            border: none;
+            border-bottom: 1px solid grey;
+            margin: 10px 0;
+        }
+        .error{
+            font-size: .8em;
+            color: red;
+        }
+    }
+}

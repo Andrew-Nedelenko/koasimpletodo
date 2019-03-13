@@ -5,13 +5,15 @@ const path = require('path');
 const cors = require('koa2-cors');
 const helmet = require('koa-helmet');
 const serve = require('koa-static');
+const bodyParser = require('koa-bodyparser');
 const { router } = require('./routes/router');
 
 const app = new Koa();
 
 app.use(logger({
   prettyPrint: true,
-})).use(router.routes())
+})).use(bodyParser())
+  .use(router.routes())
   .use(router.allowedMethods())
   .use(cors())
   .use(helmet())

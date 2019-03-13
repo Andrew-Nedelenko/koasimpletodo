@@ -10,6 +10,12 @@ const getToAdd = async (ctx) => {
   });
 };
 
+const postTask = async (ctx) => {
+  setTimeout(() => {
+    console.log(ctx.request.body);
+  }, 10);
+};
+
 module.exports = {
-  getAllList, getToAdd,
+  getAllList, getToAdd, postTask,
 };

@@ -1,6 +1,11 @@
 <% include partials/header %>
 <% include partials/navbar %>
-    <div class="selfContainer">
-        add
+    <div class="addContainer">
+        <form class="form">
+            <input type="text" name="title" placeholder="new task">
+            <textarea name="content" cols="10" rows="0" placeholder="description"></textarea>
+            <input type="submit" value="add">
+            <p class="error"></p>
+        </form>
     </div>
 <% include partials/footer %>
