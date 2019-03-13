@@ -1,0 +1,43 @@
+.listContainer{
+    background-color: rgb(229, 255, 195);
+    display: flex;
+    margin: 10px;
+    .innerCont{
+        max-width: 300px;
+        font-family: $ubuntu;
+        padding: 6px 10px;
+        position: relative;
+        margin: 10px;
+        h2{
+            border-bottom: 1px solid gainsboro;
+            margin: 0 0 5px 0;
+            font-size: 1.2em;
+            padding: 0 0 5px 0;
+        }
+        h3{
+            padding: 0 0 5px 0;
+        }
+        h4{
+            padding: 0 0 5px 0;
+        }
+        .fa-pencil-alt{
+            position: absolute;
+            top: 8px;
+            right: 40px;
+            cursor: pointer;
+            &:hover{
+                color: rgb(133, 133, 133);
+            }
+        }
+        .fa-times{
+            position: absolute;
+            top: 5px;
+            right: 10px;
+            font-size: 1.4em;
+            cursor: pointer;
+            &:hover{
+                color: rgb(133, 133, 133);
+            }
+        }
+    }
+}
