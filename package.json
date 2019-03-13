@@ -6,7 +6,8 @@
   "scripts": {
     "back": "nodemon index.js",
     "front": "rm -rf ./dist && webpack --watch --mode development",
-    "build": "rm -rf ./dist && webpack --mode production --module-bind js=babel-loader"
+    "build": "rm -rf ./dist && webpack --mode production --module-bind js=babel-loader",
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
