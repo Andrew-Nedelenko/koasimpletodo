@@ -1,7 +1,7 @@
 {
   "name": "koasimpletodo",
   "version": "1.0.0",
-  "description": "",
+  "description": "fullstack application with vanilla js, koa, sequilize",
   "main": "index.js",
   "scripts": {
     "back": "nodemon index.js",
@@ -13,8 +13,8 @@
     "type": "git",
     "url": "git+https://github.com/Synacten/koasimpletodo.git"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["koa", "sequilize"],
+  "author": "Synacten",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Synacten/koasimpletodo/issues"

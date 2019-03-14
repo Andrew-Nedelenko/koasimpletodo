@@ -19,9 +19,6 @@ const getToAdd = async (ctx) => {
 
 const postTask = async (ctx) => {
   const { title, content } = ctx.request.body;
-
-  console.log(ctx.request.body);
-
   if (title === '') {
     ctx.status = 404;
     ctx.message = 'title not found';

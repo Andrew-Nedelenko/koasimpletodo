@@ -1,4 +1,6 @@
 ### koasimpletodo
+fullstack application with vanilla js, koa, sequilize
+
 Run project
 ```sh
     npm i
