@@ -22,6 +22,7 @@ const sequelize = new Sequelize('oskartestdb', 'root', 'root', {
 const selfList = sequelize.define('todolists', {
   title: Sequelize.STRING,
   content: Sequelize.STRING,
+  check: Sequelize.BOOLEAN,
   date: Sequelize.DATE,
 });
 

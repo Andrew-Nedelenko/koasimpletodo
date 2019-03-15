@@ -13,7 +13,7 @@ const getData = async (url) => {
       div.innerHTML = `
         <h2>${arr.title}</h2>
         <h3>${arr.content}</h3>
-        <h4>Status: <i class="fas fa-check"></i> </h4>
+        <h4>Status: <i class="fas ${arr.check ? 'fa-check' : 'fa-wrench'}"></i> </h4>
         <i class="fas fa-pencil-alt"></i>
         <i class="fas fa-times"></i>
       `;
@@ -59,7 +59,7 @@ const getData = async (url) => {
     confirm[0].addEventListener('click', () => {
       innerCont.openModal.style.display = 'none';
       innerCont.openModal.innerHTML = '';
-      postData(innerCont.title[num].textContent, '', 'http://192.168.7.39:3700/delete', 'DELETE');
+      postData(innerCont.title[num].textContent, '', false, 'http://192.168.7.39:3700/delete', 'DELETE');
       listContainer.innerHTML = '';
       getData('http://192.168.7.39:3700/api/list');
     });
@@ -79,7 +79,7 @@ const getData = async (url) => {
             <input type="text" name="titleUpdate" value="${innerCont.title[num].textContent}">
             <textarea name="contentUpdate" id="" cols="30" rows="10">${innerCont.content[num].textContent}</textarea>
             <label for="check">
-                  <input type="checkbox">
+                  <input type="checkbox" name='checkStatus'>
                   Status
             </label>
             <input type="submit" value="Submit" name='update'>
@@ -90,6 +90,7 @@ const getData = async (url) => {
     const closeUpdateModal = document.querySelector('.fa-times-circle');
     const title = document.querySelector("input[name='titleUpdate']");
     const content = document.querySelector("textarea[name='contentUpdate']");
+    const checkStatus = document.querySelector("input[name='checkStatus']");
     if (closeUpdateModal) {
       closeUpdateModal.addEventListener('click', () => {
         innerCont.openModal.style.display = 'none';
@@ -101,11 +102,18 @@ const getData = async (url) => {
     if (updateForm) {
       updateForm.addEventListener('submit', (e) => {
         e.preventDefault();
-        innerCont.openModal.style.display = 'none';
-        innerCont.openModal.innerHTML = '';
-        updateData(innerCont.title[num].textContent, title.value, content.value, 'http://192.168.7.39:3700/update', 'POST');
-        listContainer.innerHTML = '';
-        setTimeout(() => { getData('http://192.168.7.39:3700/api/list'); }, 1000);
+        updateData(innerCont.title[num].textContent, title.value, content.value, checkStatus.checked, 'http://192.168.7.39:3700/update', 'POST');
+        innerCont.openModal.innerHTML = `
+                <div class="updated">
+                    <h2>Updating...</h2>
+                    <div class="spinner"></div>
+                </div>
+        `;
+        setTimeout(() => {
+          listContainer.innerHTML = '';
+          innerCont.openModal.style.display = 'none';
+          getData('http://192.168.7.39:3700/api/list');
+        }, 1000);
       });
     }
     return 1;

@@ -1,9 +1,10 @@
-const postData = async (title, content, url, method) => {
+const postData = async (title, content, check, url, method) => {
   await fetch(url, {
     method,
     body: JSON.stringify({
       title,
       content,
+      check,
     }),
     headers: {
       'Content-Type': 'application/json',
@@ -11,13 +12,14 @@ const postData = async (title, content, url, method) => {
   });
 };
 
-const updateData = async (initialTitle, title, content, url, method) => {
+const updateData = async (initialTitle, title, content, check, url, method) => {
   await fetch(url, {
     method,
     body: JSON.stringify({
       initialTitle,
       title,
       content,
+      check,
     }),
     headers: {
       'Content-Type': 'application/json',
@@ -41,7 +43,7 @@ const PostData = () => {
         formData.error.innerHTML = 'enter the title';
         setTimeout(() => { formData.error.innerHTML = ''; }, 10000);
       } else {
-        postData(formData.title.value, formData.description.value, 'http://192.168.7.39:3700/list', 'POST');
+        postData(formData.title.value, formData.description.value, false, 'http://192.168.7.39:3700/list', 'POST');
         // eslint-disable-next-line no-restricted-globals
         location.replace('/list');
       }

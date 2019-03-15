@@ -18,7 +18,7 @@ const getToAdd = async (ctx) => {
 };
 
 const postTask = async (ctx) => {
-  const { title, content } = ctx.request.body;
+  const { title, content, check } = ctx.request.body;
   if (title === '') {
     ctx.status = 404;
     ctx.message = 'title not found';
@@ -26,6 +26,7 @@ const postTask = async (ctx) => {
     await selfList.create({
       title,
       content,
+      check,
       date: Date.now(),
     });
     ctx.status = 201;

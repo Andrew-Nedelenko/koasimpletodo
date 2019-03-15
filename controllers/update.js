@@ -1,7 +1,9 @@
 const { selfList } = require('../model/Post');
 
 const updateData = async (ctx) => {
-  const { initialTitle, title, content } = ctx.request.body;
+  const {
+    initialTitle, title, content, check,
+  } = ctx.request.body;
   if (title === '') {
     ctx.status = 404;
   } else {
@@ -11,7 +13,7 @@ const updateData = async (ctx) => {
       },
     });
     if (findPrev) {
-      await selfList.update({ title, content }, {
+      await selfList.update({ title, content, check }, {
         where: {
           title: initialTitle,
         },
