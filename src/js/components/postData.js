@@ -10,6 +10,20 @@ const postData = async (title, content, url, method) => {
     },
   });
 };
+
+const updateData = async (initialTitle, title, content, url, method) => {
+  await fetch(url, {
+    method,
+    body: JSON.stringify({
+      initialTitle,
+      title,
+      content,
+    }),
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+};
 const PostData = () => {
   const formData = {
     form: document.querySelector('.form'),
@@ -37,5 +51,5 @@ const PostData = () => {
 
 
 module.exports = {
-  PostData, postData,
+  PostData, postData, updateData,
 };
