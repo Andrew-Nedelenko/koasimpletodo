@@ -1,3 +1,9 @@
-h1{
-    color: red;
+.indexWrap{
+    h1{
+        font-family: $ubuntu;
+        text-align: center;
+        font-size: 1.4em;
+        margin: 20px 0;
+        font-weight: bold;
+    }
 }

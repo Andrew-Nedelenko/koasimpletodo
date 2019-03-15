@@ -1,5 +1,5 @@
 ### koasimpletodo
-fullstack application with vanilla js, koa, sequilize
+fullstack application with vanilla js, koa, sequelize
 
 Run project
 ```sh
